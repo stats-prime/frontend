@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* =================== Base =================== */
+:root { --maxw: 1200px; }
+html, body, #root { height: 100%; }
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Fondo con ligera profundidad */
+  background: radial-gradient(100% 60% at 50% 0%, #1b2240 0%, #0b1220 55%, #070b14 100%);
+  color: #e5e7eb; /* slate-200 aprox */
+}
+
+/* ============== Utilidades globales ============== */
+.container-app { @apply mx-auto w-full max-w-[var(--maxw)] px-4; }
+.section       { @apply mx-auto w-full max-w-[var(--maxw)] px-4 py-8; }
+.title         { @apply text-2xl md:text-3xl font-semibold tracking-tight; }
+.muted         { @apply text-slate-400; }
+
+/* ============== Componentes reutilizables ============== */
+.card {
+  @apply bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-xl;
+}
+
+.input {
+  @apply w-full rounded-lg bg-slate-900/60 border border-slate-800 px-3 py-2
+         placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-indigo-500;
+}
+
+.label {
+  @apply block text-sm font-medium text-slate-300 mb-1;
+}
+
+/* Botones */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium
+         transition active:scale-[.98];
+}
+
+/* En v4 NO se puede hacer @apply de una clase personalizada.
+   Por eso repetimos utilidades base en variantes: */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium
+         transition active:scale-[.98]
+         bg-indigo-600 text-white hover:bg-indigo-500 shadow;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium
+         transition active:scale-[.98]
+         hover:bg-slate-800 text-slate-200;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center rounded-lg px-2 py-1 text-xs font-medium
+         bg-slate-800 border border-slate-700;
+}
+
+/* Alertas */
+.alert {
+  @apply rounded-xl border p-3 text-sm;
+}
+
+.alert-success {
+  @apply rounded-xl border p-3 text-sm
+         border-emerald-700/50 bg-emerald-900/30 text-emerald-200;
+}
+
+.alert-error {
+  @apply rounded-xl border p-3 text-sm
+         border-rose-700/50 bg-rose-900/30 text-rose-200;
+}
+
+.shadow-soft { box-shadow: 0 10px 30px -20px rgba(0,0,0,.6); }
+
+/* Select oscuro legible (popup incluido) */
+.select-dark {
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: rgba(15,23,42,0.6); /* slate-900/60 */
+  border: 1px solid #1f2937;            /* slate-800 */
+  padding: 0.5rem 0.75rem;
+  color: #e5e7eb;                        /* slate-200 */
+  outline: none;
+}
+.select-dark:focus {
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.15); /* ring indigo */
+}
+
+/* Forzar colores de opciones en el popup */
+.select-dark option {
+  background-color: #0b1220;  /* muy oscuro */
+  color: #e5e7eb;             /* claro */
+}
+
+/* Placeholder más tenue */
+.select-dark option[disabled],
+.select-dark option[value=""] {
+  color: #94a3b8;             /* slate-400 */
+}
+
+/* Opción seleccionada en el desplegable */
+.select-dark option:checked {
+  background-color: #312e81;  /* indigo-900 */
+  color: #fff;
+}
+
