@@ -14,7 +14,7 @@ export default function GenshinStats({ farmType }) {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`http://127.0.0.1:8000/api/games/${gameId}/farm-stats/`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/games/${gameId}/farm-stats/`, {
           headers: { Authorization: `Bearer ${token}` },
           params: { type: farmType }, // JEFE, JEFE-SEMANAL, DOMINIO
         });
