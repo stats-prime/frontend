@@ -22,7 +22,6 @@ function FarmEventRegister() {
     if (!selectedGame || !form.source) return;
 
     axiosClient
-      axiosClient
       .get(`/games/${selectedGame}/farm-sources/${form.source}/rewards/`)
       .then((res) => {
         const rewards = res.data.map((r) => ({
@@ -106,8 +105,8 @@ function FarmEventRegister() {
           >
             <option value="">Selecciona tipo</option>
             <option value="JEFE">Jefe</option>
-            <option value="JEFE_SEMANAL">Jefe Semanal</option>
-            <option value="DOMINIO">Dominio</option>
+            <option value="JEFE-SEMANAL">Jefe Semanal</option>
+            <option value="DOMINIO-TALENTO">Dominio</option>
           </select>
         </div>
 
