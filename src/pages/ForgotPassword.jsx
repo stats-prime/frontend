@@ -54,7 +54,7 @@ export default function PasswordResetBySecret() {
     try {
       setLoading(true);
       const res = await authApi.passwordResetBySecret({
-        identifier,
+        identifier: username,
         answer: form.answer,
         new_password: form.new_password,
       });
