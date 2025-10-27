@@ -35,6 +35,11 @@ function FarmEventRegister() {
       .catch((err) => console.error("Error fetching rewards:", err));
   }, [form.source, selectedGame]);
 
+  // Limpiar el mensaje si se cambia el juego, tipo o fuente
+  useEffect(()=>{
+    setMessage("");
+  }, [selectedGame, form.farm_type, form.source]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -71,7 +76,7 @@ function FarmEventRegister() {
     <div className="max-w-lg md:max-w-xk mx-auto bg-slate-900 text-slate-200 p-6 rounded-xl shadow-lg">
       <h2 className="text-xl font-bold mb-4">Registrar evento de farmeo</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className={`space-y-5 ${loading ? "opacity-70 pointer-events-none" : ""}`}>
         {/* Selector de juego */}
         <div>
           <label className="block font-medium mb-2">Juego:</label>
@@ -105,8 +110,8 @@ function FarmEventRegister() {
           >
             <option value="">Selecciona tipo</option>
             <option value="JEFE">Jefe</option>
-            <option value="JEFE-SEMANAL">Jefe Semanal</option>
-            <option value="DOMINIO-TALENTO">Dominio</option>
+            <option value="JEFE_SEMANAL">Jefe Semanal</option>
+            <option value="DOMINIO">Dominio</option>
           </select>
         </div>
 
