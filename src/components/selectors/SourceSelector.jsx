@@ -13,7 +13,7 @@ function SourceSelector({ gameIdDB, farmTypeFilter, value, onChange }) {
         
         setLoading(true);
         axiosClient
-          .get(`/games/${gameIdDB}/farm-sources/?type=${farmTypeFilter}`)
+          .get(`/games/${gameIdDB}/farm-sources/?source_type=${farmTypeFilter}`)
           .then((res) => setSources(res.data))
           .catch((err) => console.error("Error fetching sources:", err))
           .finally(() => setLoading(false));
