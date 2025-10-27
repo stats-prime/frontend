@@ -22,6 +22,7 @@ function FarmEventRegister() {
     if (!selectedGame || !form.source) return;
 
     axiosClient
+      axiosClient
       .get(`/games/${selectedGame}/farm-sources/${form.source}/rewards/`)
       .then((res) => {
         const rewards = res.data.map((r) => ({
