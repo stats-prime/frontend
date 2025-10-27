@@ -110,7 +110,7 @@ function FarmEventRegister() {
           >
             <option value="">Selecciona tipo</option>
             <option value="JEFE">Jefe</option>
-            <option value="JEFE_SEMANAL">Jefe Semanal</option>
+            <option value="JEFE-SEMANAL">Jefe Semanal</option>
             <option value="DOMINIO">Dominio</option>
           </select>
         </div>
